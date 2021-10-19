@@ -1,0 +1,705 @@
+{
+  "tailf-ncs:device": [
+    {
+      "name": "dist-rtr01",
+      "address": "10.10.20.175",
+      "ssh": {
+        "host-key-verification": "none"
+      },
+      "authgroup": "labadmin",
+      "device-type": {
+        "cli": {
+          "ned-id": "cisco-ios-cli-6.67:cisco-ios-cli-6.67",
+          "protocol": "telnet"
+        }
+      },
+      "commit-queue": {
+        "queue-length": 0
+      },
+      "active-settings": {
+        "connect-timeout": 20,
+        "read-timeout": 20,
+        "write-timeout": 20,
+        "ssh-keep-alive": {
+          "interval": 20,
+          "count": 3
+        },
+        "ned-keep-alive": {
+          "count": 3
+        },
+        "connect-retries": {
+          "attempts": 0,
+          "timeout": 3
+        },
+        "trace": "false",
+        "trace-output": "file",
+        "ned-settings": {
+          "use-junos-rollback": false
+        },
+        "commit-queue": {
+          "enabled-by-default": false
+        },
+        "session-pool": {
+          "idle-time": 30
+        },
+        "no-overwrite": {
+          "enabled-by-default": false
+        },
+        "lsa": {
+          "no-overwrite": {
+            "enabled-by-default": false
+          }
+        },
+        "out-of-sync-commit-behaviour": "reject"
+      },
+      "state": {
+        "oper-state": "enabled",
+        "transaction-mode": "ned",
+        "last-transaction-id": "9cb4d1b7110c4e65be0d8539a048a71d",
+        "admin-state": "unlocked"
+      },
+      "capability": [
+        {
+          "uri": "http://tail-f.com/ns/ncs-ned/cli-allow-abbrev-keys"
+        },
+        {
+          "uri": "http://tail-f.com/ns/ncs-ned/show-partial?path-format=key-path"
+        },
+        {
+          "uri": "http://tail-f.com/ns/ncs-ned/show-stats-path"
+        },
+        {
+          "uri": "urn:ietf:params:netconf:capability:with-defaults:1.0?basic-mode=trim"
+        },
+        {
+          "uri": "urn:ietf:params:xml:ns:yang:ietf-interfaces",
+          "revision": "2014-05-08",
+          "module": "ietf-interfaces"
+        },
+        {
+          "uri": "urn:ietf:params:xml:ns:yang:ietf-ip",
+          "revision": "2014-06-16",
+          "module": "ietf-ip"
+        },
+        {
+          "uri": "urn:ios",
+          "revision": "2020-12-04",
+          "module": "tailf-ned-cisco-ios"
+        },
+        {
+          "uri": "urn:ios-stats",
+          "revision": "2020-12-04",
+          "module": "tailf-ned-cisco-ios-stats"
+        }
+      ],
+      "module": [
+        {
+          "name": "ietf-interfaces",
+          "revision": "2014-05-08"
+        },
+        {
+          "name": "ietf-ip",
+          "revision": "2014-06-16"
+        },
+        {
+          "name": "tailf-ned-cisco-ios",
+          "revision": "2020-12-04"
+        },
+        {
+          "name": "tailf-ned-cisco-ios-stats",
+          "revision": "2020-12-04"
+        }
+      ],
+      "platform": {
+        "name": "ios-xe",
+        "version": "16.11.1b",
+        "model": "CSR1000V",
+        "serial-number": "9KAD9VHZ4B9"
+      },
+      "config": {
+        "tailf-ned-cisco-ios:hostname": "dist-rtr01",
+        "tailf-ned-cisco-ios:tailfned": {
+          "police": "cirmode"
+        },
+        "tailf-ned-cisco-ios:version": "16.11",
+        "tailf-ned-cisco-ios:service": {
+          "timestamps": {
+            "debug": {
+              "datetime": {
+                "msec": [null]
+              }
+            },
+            "log": {
+              "datetime": {
+                "msec": [null]
+              }
+            }
+          },
+          "call-home": [null]
+        },
+        "tailf-ned-cisco-ios:login": {
+          "on-success": {
+            "log": [null]
+          }
+        },
+        "tailf-ned-cisco-ios:platform": {
+          "console": "serial",
+          "punt-keepalive": {
+            "disable-kernel-core": false
+          },
+          "qfp": {
+            "utilization": {
+              "monitor": {
+                "load": 80
+              }
+            }
+          }
+        },
+        "tailf-ned-cisco-ios:vrf": {
+          "definition": [
+            {
+              "name": "Mgmt-intf",
+              "address-family": {
+                "ipv4": {
+                },
+                "ipv6": {
+                }
+              }
+            }
+          ]
+        },
+        "tailf-ned-cisco-ios:enable": {
+          "password": {
+            "secret": "cisco"
+          }
+        },
+        "tailf-ned-cisco-ios:call-home": {
+          "contact-email-addr": "sch-smart-licensing@cisco.com",
+          "profile": [
+            {
+              "name": "CiscoTAC-1",
+              "active": true,
+              "reporting": {
+                "smart-licensing-data": true
+              },
+              "destination": {
+                "transport-method": {
+                  "http": [null],
+                  "email": false
+                }
+              }
+            }
+          ]
+        },
+        "tailf-ned-cisco-ios:ip": {
+          "domain": {
+            "lookup-conf": {
+              "lookup": false
+            },
+            "name": "virl.info"
+          },
+          "ssh": {
+            "server": {
+              "algorithm": {
+                "authentication": ["password"]
+              }
+            }
+          },
+          "forward-protocol": {
+            "nd": [null]
+          },
+          "http": {
+            "server": false,
+            "secure-server": true
+          },
+          "route": {
+            "vrf": [
+              {
+                "name": "Mgmt-intf",
+                "ip-route-forwarding-list": [
+                  {
+                    "prefix": "0.0.0.0",
+                    "mask": "0.0.0.0",
+                    "forwarding-address": "10.10.20.254"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "tailf-ned-cisco-ios:subscriber": {
+          "templating": true
+        },
+        "tailf-ned-cisco-ios:multilink": {
+          "bundle-name": "authenticated"
+        },
+        "tailf-ned-cisco-ios:username": [
+          {
+            "name": "cisco",
+            "privilege": 15,
+            "secret": {
+              "type": "9",
+              "secret": "$9$iVecEqVTUJzHUk$EO2BfGoo4I8.wW.QanPw2rSxwy9NJt6kc3xFNEFLYSA"
+            }
+          }
+        ],
+        "tailf-ned-cisco-ios:redundancy": {
+        },
+        "tailf-ned-cisco-ios:crypto": {
+          "pki": {
+            "trustpoint": [
+              {
+                "id": "SLA-TrustPoint",
+                "enrollment": {
+                  "pkcs12": [null]
+                },
+                "revocation-check": ["crl"]
+              },
+              {
+                "id": "TP-self-signed-2533315402",
+                "enrollment": {
+                  "selfsigned": [null]
+                },
+                "subject-name": "cn=IOS-Self-Signed-Certificate-2533315402",
+                "revocation-check": ["none"],
+                "rsakeypair": {
+                  "key-label": "TP-self-signed-2533315402"
+                }
+              }
+            ],
+            "certificate": {
+              "chain": [
+                {
+                  "name": "SLA-TrustPoint",
+                  "certificate": [
+                    {
+                      "serial": "01",
+                      "cert-type": "ca",
+                      "cert": "  30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030 \r\n  32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317 43697363 \r\n  6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934 \r\n  3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305 \r\n  43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73 696E6720 \r\n  526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 \r\n  82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D \r\n  CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520 \r\n  1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE \r\n  4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC \r\n  7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188 \r\n  68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7 \r\n  C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191 \r\n  C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44 \r\n  DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201 \r\n  06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85 \r\n  4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500 \r\n  03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905 \r\n  604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B \r\n  D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8 \r\n  467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C \r\n  7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B \r\n  5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678 \r\n  80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB \r\n  418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0 \r\n  D697DF7F 28\r\n"
+                    }
+                  ]
+                },
+                {
+                  "name": "TP-self-signed-2533315402",
+                  "certificate": [
+                    {
+                      "serial": "01",
+                      "cert-type": "self-signed",
+                      "cert": "  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 \r\n  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 \r\n  69666963 6174652D 32353333 33313534 3032301E 170D3231 30393133 31393236 \r\n  35355A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649 \r\n  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 35333333 \r\n  31353430 32308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 \r\n  0A028201 01009FDD 8CC2FC78 CB6DF5C0 F85A3B51 C8F5557A 22213F06 7EB07BC8 \r\n  8FCFCD01 57C962E5 4E58E3C5 60E2C723 D27BF7AB BB0BEE72 B828D8E3 792D1A5D \r\n  1E548C7E 140EB127 9F7624CB 914491F0 C088DAC4 F7C0C9FD 62386845 90EC7BE3 \r\n  9FDE8B9F A94B120B 0562CD1B CC939318 BDB3FE73 1335F365 00C7B79C E0BC8F29 \r\n  6AA7D01E AB334DC6 39AC492C 16DC79E8 30E1B03F 006FCD1B 7F0A90F9 554215B7 \r\n  8763C888 9CFC2EF4 DBCA5A3E B15B8D31 A9CBDA09 A9A45DF4 932BE0C2 25179917 \r\n  AFED91CF 34FDC1BF 39F403D4 3597FA4E 9884223F 103FF425 C407F8E0 B7F2B19D \r\n  1FF79E21 6047FD34 E79EC703 44AE333C 506688F3 95BE883B 10069939 E4046D1F \r\n  9422AA26 9D670203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF \r\n  301F0603 551D2304 18301680 1461DF53 A46B435C 183588B1 31B5CE14 0DBB21AB \r\n  CB301D06 03551D0E 04160414 61DF53A4 6B435C18 3588B131 B5CE140D BB21ABCB \r\n  300D0609 2A864886 F70D0101 05050003 82010100 0761BF7B 86778534 794F87F1 \r\n  EBF93EE5 057DCABF B8026288 1D7496B1 436DDA8E 3609E209 48DD0F51 3D0437D5 \r\n  3CFE50C7 99D7F843 015B04E7 EBDEB9ED 8EB94E0B A3EF66F1 CC546E44 D87273AE \r\n  D3516DDE D9C59F78 E5A52067 5F83ACD9 CD3A5BD6 46E90666 70A77C1E 80A9D29F \r\n  4584552E D99474AD B04DB558 9759876E 0158F037 8769E9B1 BFEEE6E3 AAE31424 \r\n  03DADDA6 8ABFD88F 0A23B315 15990035 A3358ADA 284C3F2A C6A155E7 5E9F2850 \r\n  92C268D7 2BDD9DA4 66ECA501 E2776494 53262965 AF2E58BB 4739F013 E2F66413 \r\n  4CF461B8 1B901AD3 91766248 9AF453CA 2B67DBBC 01301DE4 38F9B9E7 5E812013 \r\n  A7A989B8 A3FD712A B6463105 270E401B F665EB0D\r\n"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "tailf-ned-cisco-ios:interface": {
+          "Loopback": [
+            {
+              "name": "0",
+              "description": "to",
+              "ip": {
+                "no-address": {
+                  "address": false
+                }
+              },
+              "shutdown": [null]
+            }
+          ],
+          "GigabitEthernet": [
+            {
+              "name": "1",
+              "description": "to port6.sandbox-backend",
+              "negotiation": {
+                "auto": true
+              },
+              "mop": {
+                "xenabled": false,
+                "sysid": false
+              },
+              "vrf": {
+                "forwarding": "Mgmt-intf"
+              },
+              "ip": {
+                "address": {
+                  "primary": {
+                    "address": "10.10.20.175",
+                    "mask": "255.255.255.0"
+                  }
+                }
+              }
+            },
+            {
+              "name": "2",
+              "description": "L3 Link to core-rtr01",
+              "negotiation": {
+                "auto": true
+              },
+              "mop": {
+                "xenabled": false,
+                "sysid": false
+              },
+              "ip": {
+                "address": {
+                  "primary": {
+                    "address": "172.16.252.21",
+                    "mask": "255.255.255.252"
+                  }
+                }
+              }
+            },
+            {
+              "name": "3",
+              "description": "L3 Link to core-rtr02",
+              "negotiation": {
+                "auto": true
+              },
+              "mop": {
+                "xenabled": false,
+                "sysid": false
+              },
+              "ip": {
+                "address": {
+                  "primary": {
+                    "address": "172.16.252.25",
+                    "mask": "255.255.255.252"
+                  }
+                }
+              }
+            },
+            {
+              "name": "4",
+              "description": "L3 Link to dist-sw01",
+              "negotiation": {
+                "auto": true
+              },
+              "mop": {
+                "xenabled": false,
+                "sysid": false
+              },
+              "ip": {
+                "address": {
+                  "primary": {
+                    "address": "172.16.252.2",
+                    "mask": "255.255.255.252"
+                  }
+                }
+              }
+            },
+            {
+              "name": "5",
+              "description": "L3 Link to dist-sw02",
+              "negotiation": {
+                "auto": true
+              },
+              "mop": {
+                "xenabled": false,
+                "sysid": false
+              },
+              "ip": {
+                "address": {
+                  "primary": {
+                    "address": "172.16.252.10",
+                    "mask": "255.255.255.252"
+                  }
+                }
+              }
+            },
+            {
+              "name": "6",
+              "description": "L3 Link to dist-rtr02",
+              "negotiation": {
+                "auto": true
+              },
+              "mop": {
+                "xenabled": false,
+                "sysid": false
+              },
+              "ip": {
+                "address": {
+                  "primary": {
+                    "address": "172.16.252.17",
+                    "mask": "255.255.255.252"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "tailf-ned-cisco-ios:control-plane": {
+        },
+        "tailf-ned-cisco-ios:line": {
+          "console": [
+            {
+              "first": "0",
+              "exec-timeout": {
+                "minutes": 0
+              },
+              "password": {
+                "secret": "cisco"
+              },
+              "stopbits": "1"
+            }
+          ],
+          "vty": [
+            {
+              "first": 0,
+              "last": 4,
+              "exec-timeout": {
+                "minutes": 720
+              },
+              "login": {
+                "local": [null]
+              },
+              "password": {
+                "secret": "cisco"
+              },
+              "transport": {
+                "input": ["ssh", "telnet"]
+              }
+            }
+          ]
+        },
+        "tailf-ned-cisco-ios:logging": {
+          "buffered": {
+            "severity-level": "debugging"
+          },
+          "monitor": {
+            "severity-level": "debugging"
+          }
+        },
+        "tailf-ned-cisco-ios:spanning-tree": {
+          "extend": {
+            "system-id": [null]
+          }
+        },
+        "tailf-ned-cisco-ios:diagnostic": {
+          "bootup": {
+            "level": "minimal"
+          }
+        },
+        "tailf-ned-cisco-ios:router": {
+          "ospf": [
+            {
+              "id": 1,
+              "network": [
+                {
+                  "ip": "172.16.252.0",
+                  "mask": "0.0.3.255",
+                  "area": 0
+                }
+              ]
+            }
+          ]
+        },
+        "tailf-ned-cisco-ios:memory": {
+          "free": {
+            "low-watermark": {
+              "processor": 80526
+            }
+          }
+        },
+        "ietf-yang-library:yang-library": {
+          "module-set": [
+            {
+              "name": "common",
+              "module": [
+                {
+                  "name": "ietf-interfaces",
+                  "revision": "2014-05-08",
+                  "namespace": "urn:ietf:params:xml:ns:yang:ietf-interfaces",
+                  "feature": ["arbitrary-names", "if-mib", "pre-provisioning"]
+                },
+                {
+                  "name": "ietf-ip",
+                  "revision": "2014-06-16",
+                  "namespace": "urn:ietf:params:xml:ns:yang:ietf-ip",
+                  "feature": ["ipv4-non-contiguous-netmasks", "ipv6-privacy-autoconf"]
+                },
+                {
+                  "name": "tailf-ned-cisco-ios",
+                  "revision": "2020-12-04",
+                  "namespace": "urn:ios"
+                },
+                {
+                  "name": "tailf-ned-cisco-ios-stats",
+                  "namespace": "urn:ios-stats"
+                }
+              ],
+              "import-only-module": [
+                {
+                  "name": "tailf-ned-cisco-ios-id",
+                  "revision": "",
+                  "namespace": "urn:ios-id"
+                }
+              ]
+            }
+          ],
+          "schema": [
+            {
+              "name": "common",
+              "module-set": ["common"]
+            }
+          ],
+          "datastore": [
+            {
+              "name": "ietf-datastores:running",
+              "schema": "common"
+            },
+            {
+              "name": "ietf-datastores:intended",
+              "schema": "common"
+            },
+            {
+              "name": "ietf-datastores:operational",
+              "schema": "common"
+            }
+          ],
+          "content-id": "f8b2c8e077c6bf0a8bff1d3ba9d3080c"
+        },
+        "ietf-yang-library:modules-state": {
+          "module-set-id": "f8b2c8e077c6bf0a8bff1d3ba9d3080c",
+          "module": [
+            {
+              "name": "ietf-interfaces",
+              "revision": "2014-05-08",
+              "namespace": "urn:ietf:params:xml:ns:yang:ietf-interfaces",
+              "feature": ["arbitrary-names", "if-mib", "pre-provisioning"],
+              "conformance-type": "implement"
+            },
+            {
+              "name": "ietf-ip",
+              "revision": "2014-06-16",
+              "namespace": "urn:ietf:params:xml:ns:yang:ietf-ip",
+              "feature": ["ipv4-non-contiguous-netmasks", "ipv6-privacy-autoconf"],
+              "conformance-type": "implement"
+            },
+            {
+              "name": "tailf-ned-cisco-ios",
+              "revision": "2020-12-04",
+              "namespace": "urn:ios",
+              "conformance-type": "implement"
+            },
+            {
+              "name": "tailf-ned-cisco-ios-id",
+              "revision": "",
+              "namespace": "urn:ios-id",
+              "conformance-type": "import"
+            },
+            {
+              "name": "tailf-ned-cisco-ios-stats",
+              "revision": "",
+              "namespace": "urn:ios-stats",
+              "conformance-type": "implement"
+            }
+          ]
+        }
+      },
+      "live-status": {
+        "ietf-yang-library:yang-library": {
+          "module-set": [
+            {
+              "name": "common",
+              "module": [
+                {
+                  "name": "ietf-interfaces",
+                  "revision": "2014-05-08",
+                  "namespace": "urn:ietf:params:xml:ns:yang:ietf-interfaces",
+                  "feature": ["arbitrary-names", "if-mib", "pre-provisioning"]
+                },
+                {
+                  "name": "ietf-ip",
+                  "revision": "2014-06-16",
+                  "namespace": "urn:ietf:params:xml:ns:yang:ietf-ip",
+                  "feature": ["ipv4-non-contiguous-netmasks", "ipv6-privacy-autoconf"]
+                },
+                {
+                  "name": "tailf-ned-cisco-ios",
+                  "revision": "2020-12-04",
+                  "namespace": "urn:ios"
+                },
+                {
+                  "name": "tailf-ned-cisco-ios-stats",
+                  "namespace": "urn:ios-stats"
+                }
+              ],
+              "import-only-module": [
+                {
+                  "name": "tailf-ned-cisco-ios-id",
+                  "revision": "",
+                  "namespace": "urn:ios-id"
+                }
+              ]
+            }
+          ],
+          "schema": [
+            {
+              "name": "common",
+              "module-set": ["common"]
+            }
+          ],
+          "datastore": [
+            {
+              "name": "ietf-datastores:running",
+              "schema": "common"
+            },
+            {
+              "name": "ietf-datastores:intended",
+              "schema": "common"
+            },
+            {
+              "name": "ietf-datastores:operational",
+              "schema": "common"
+            }
+          ],
+          "content-id": "f8b2c8e077c6bf0a8bff1d3ba9d3080c"
+        },
+        "ietf-yang-library:modules-state": {
+          "module-set-id": "f8b2c8e077c6bf0a8bff1d3ba9d3080c",
+          "module": [
+            {
+              "name": "ietf-interfaces",
+              "revision": "2014-05-08",
+              "namespace": "urn:ietf:params:xml:ns:yang:ietf-interfaces",
+              "feature": ["arbitrary-names", "if-mib", "pre-provisioning"],
+              "conformance-type": "implement"
+            },
+            {
+              "name": "ietf-ip",
+              "revision": "2014-06-16",
+              "namespace": "urn:ietf:params:xml:ns:yang:ietf-ip",
+              "feature": ["ipv4-non-contiguous-netmasks", "ipv6-privacy-autoconf"],
+              "conformance-type": "implement"
+            },
+            {
+              "name": "tailf-ned-cisco-ios",
+              "revision": "2020-12-04",
+              "namespace": "urn:ios",
+              "conformance-type": "implement"
+            },
+            {
+              "name": "tailf-ned-cisco-ios-id",
+              "revision": "",
+              "namespace": "urn:ios-id",
+              "conformance-type": "import"
+            },
+            {
+              "name": "tailf-ned-cisco-ios-stats",
+              "revision": "",
+              "namespace": "urn:ios-stats",
+              "conformance-type": "implement"
+            }
+          ]
+        }
+      },
+      "tailf-ncs-alarms:alarm-summary": {
+        "indeterminates": 0,
+        "criticals": 0,
+        "majors": 0,
+        "minors": 0,
+        "warnings": 0
+      }
+    }
+  ]
+}
+

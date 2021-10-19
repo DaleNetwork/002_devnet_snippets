@@ -1,0 +1,2096 @@
+{
+  "tailf-ncs:device": [
+    {
+      "name": "dist-sw01",
+      "address": "10.10.20.177",
+      "ssh": {
+        "host-key-verification": "none"
+      },
+      "authgroup": "labadmin",
+      "device-type": {
+        "cli": {
+          "ned-id": "cisco-nx-cli-5.20:cisco-nx-cli-5.20",
+          "protocol": "telnet"
+        }
+      },
+      "ned-settings": {
+        "tailf-ned-cisco-nx-meta:cisco-nx": {
+          "behaviours": {
+            "show-interface-all": "enable"
+          }
+        }
+      },
+      "commit-queue": {
+        "queue-length": 0
+      },
+      "active-settings": {
+        "connect-timeout": 20,
+        "read-timeout": 20,
+        "write-timeout": 20,
+        "ssh-keep-alive": {
+          "interval": 20,
+          "count": 3
+        },
+        "ned-keep-alive": {
+          "count": 3
+        },
+        "connect-retries": {
+          "attempts": 0,
+          "timeout": 3
+        },
+        "trace": "false",
+        "trace-output": "file",
+        "ned-settings": {
+          "use-junos-rollback": false
+        },
+        "commit-queue": {
+          "enabled-by-default": false
+        },
+        "session-pool": {
+          "idle-time": 30
+        },
+        "no-overwrite": {
+          "enabled-by-default": false
+        },
+        "lsa": {
+          "no-overwrite": {
+            "enabled-by-default": false
+          }
+        },
+        "out-of-sync-commit-behaviour": "reject"
+      },
+      "state": {
+        "oper-state": "disabled",
+        "oper-state-error-tag": "noconnection",
+        "transaction-mode": "ned",
+        "last-transaction-id": "0d99f328c0577a2a70fd3fd033c5848d",
+        "admin-state": "unlocked"
+      },
+      "capability": [
+        {
+          "uri": "http://tail-f.com/ned/cisco-nx",
+          "revision": "2020-12-08",
+          "module": "tailf-ned-cisco-nx"
+        },
+        {
+          "uri": "http://tail-f.com/ned/cisco-nx/stats",
+          "revision": "2020-12-08",
+          "module": "tailf-ned-cisco-nx-stats"
+        },
+        {
+          "uri": "http://tail-f.com/ns/ncs-ned/show-partial?path-format=key-path"
+        },
+        {
+          "uri": "http://tail-f.com/ns/ncs-ned/show-stats-path"
+        },
+        {
+          "uri": "urn:ietf:params:netconf:capability:with-defaults:1.0?basic-mode=trim"
+        }
+      ],
+      "module": [
+        {
+          "name": "tailf-ned-cisco-nx",
+          "revision": "2020-12-08"
+        },
+        {
+          "name": "tailf-ned-cisco-nx-stats",
+          "revision": "2020-12-08"
+        }
+      ],
+      "platform": {
+        "name": "NX-OS",
+        "version": "9.2(3)",
+        "model": "cisco Nexus9000 9000v Chassis ",
+        "serial-number": "94902154C5V"
+      },
+      "config": {
+        "tailf-ned-cisco-nx:tailfned": {
+          "default-lacp-suspend-individual": true
+        },
+        "tailf-ned-cisco-nx:version": "9.2(3) Bios:version",
+        "tailf-ned-cisco-nx:hostname": "dist-sw01",
+        "tailf-ned-cisco-nx:feature": {
+          "hsrp": [null],
+          "ospf": [null],
+          "vpc": [null],
+          "interface-vlan": [null],
+          "lacp": [null],
+          "telnet": [null]
+        },
+        "tailf-ned-cisco-nx:cfs": {
+          "eth": {
+            "distribute": [null]
+          }
+        },
+        "tailf-ned-cisco-nx:username": [
+          {
+            "name": "admin",
+            "password": {
+              "encryption": "5",
+              "password": "$1$KuOSBsvW$Cy0TSD..gEBGBPjzpDgf51"
+            },
+            "role": "network-admin"
+          },
+          {
+            "name": "adminbackup",
+            "password": {
+              "encryption": "5",
+              "password": "!"
+            },
+            "role": "network-operator"
+          },
+          {
+            "name": "cisco",
+            "password": {
+              "encryption": "5",
+              "password": "$1$Nk7ZkwH0$fyiRmMMfIheqE3BqvcL0C1"
+            },
+            "role": "network-operator"
+          },
+          {
+            "name": "lab",
+            "password": {
+              "encryption": "5",
+              "password": "$1$buoy/oqy$.EXQz8rCn72ii8qtdldj00"
+            },
+            "role": "network-admin"
+          }
+        ],
+        "tailf-ned-cisco-nx:username-secondary-roles": {
+          "username": [
+            {
+              "name": "cisco",
+              "role": "network-admin"
+            }
+          ]
+        },
+        "tailf-ned-cisco-nx:username-config": {
+          "username": [
+            {
+              "name": "adminbackup",
+              "passphrase": {
+                "gracetime": 3,
+                "lifetime": 99999,
+                "warntime": 14
+              }
+            },
+            {
+              "name": "cisco",
+              "passphrase": {
+                "gracetime": 3,
+                "lifetime": 99999,
+                "warntime": 14
+              }
+            },
+            {
+              "name": "lab",
+              "passphrase": {
+                "gracetime": 3,
+                "lifetime": 99999,
+                "warntime": 14
+              }
+            }
+          ]
+        },
+        "tailf-ned-cisco-nx:ip": {
+          "domain-lookup": true
+        },
+        "tailf-ned-cisco-nx:mac": {
+          "address-table": {
+            "notification": {
+              "mac-move": true
+            }
+          }
+        },
+        "tailf-ned-cisco-nx:snmp-server": {
+          "user": [
+            {
+              "name": "admin",
+              "role": "network-admin",
+              "auth": {
+                "md5": "0x328945d53e05e8e7207f8c20b142f0b7",
+                "priv": {
+                  "passphrase-2": "0x328945d53e05e8e7207f8c20b142f0b7"
+                },
+                "localizedkeyAlt": [null]
+              }
+            },
+            {
+              "name": "cisco",
+              "role": "network-operator",
+              "auth": {
+                "md5": "0x55b3c64a53fb95518e75358ee75e82e9",
+                "priv": {
+                  "passphrase-2": "0x55b3c64a53fb95518e75358ee75e82e9"
+                },
+                "localizedkeyAlt": [null]
+              }
+            },
+            {
+              "name": "lab",
+              "role": "network-admin",
+              "auth": {
+                "md5": "0x5ceb414591539ee35159fca86fdfa101",
+                "priv": {
+                  "passphrase-2": "0x5ceb414591539ee35159fca86fdfa101"
+                },
+                "localizedkeyAlt": [null]
+              }
+            }
+          ],
+          "user-secondary-roles": {
+            "user": [
+              {
+                "name": "cisco",
+                "role": "network-admin"
+              }
+            ]
+          }
+        },
+        "tailf-ned-cisco-nx:rmon": {
+          "event": [
+            {
+              "number": 1,
+              "log": [null],
+              "trap": "public",
+              "description": "FATAL(1)",
+              "owner": "PMON@FATAL"
+            },
+            {
+              "number": 2,
+              "log": [null],
+              "trap": "public",
+              "description": "CRITICAL(2)",
+              "owner": "PMON@CRITICAL"
+            },
+            {
+              "number": 3,
+              "log": [null],
+              "trap": "public",
+              "description": "ERROR(3)",
+              "owner": "PMON@ERROR"
+            },
+            {
+              "number": 4,
+              "log": [null],
+              "trap": "public",
+              "description": "WARNING(4)",
+              "owner": "PMON@WARNING"
+            },
+            {
+              "number": 5,
+              "log": [null],
+              "trap": "public",
+              "description": "INFORMATION(5)",
+              "owner": "PMON@INFO"
+            }
+          ]
+        },
+        "tailf-ned-cisco-nx:password": {
+          "strength-check": false
+        },
+        "tailf-ned-cisco-nx:vlan": {
+          "vlan-list": [
+            {
+              "id": 1
+            },
+            {
+              "id": 101,
+              "name": "prod"
+            },
+            {
+              "id": 102,
+              "name": "dev"
+            },
+            {
+              "id": 103,
+              "name": "test"
+            },
+            {
+              "id": 104,
+              "name": "security"
+            },
+            {
+              "id": 105,
+              "name": "iot"
+            }
+          ]
+        },
+        "tailf-ned-cisco-nx:vrf": {
+          "context": [
+            {
+              "id": "management",
+              "ip": {
+                "route": {
+                  "ip-route-list": [
+                    {
+                      "prefix-mask": "0.0.0.0/0",
+                      "next-hop": "10.10.20.254"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "tailf-ned-cisco-nx:vpc": {
+          "domain": {
+            "id": 101,
+            "disable": {
+              "auto-recovery": false
+            },
+            "peer-gateway": [null],
+            "peer-keepalive": {
+              "destination": "10.10.20.178",
+              "source": "10.10.20.177"
+            },
+            "peer-switch": [null],
+            "layer3": {
+              "syslog-config": {
+                "peer-router": {
+                  "syslog": {
+                    "disable": [null]
+                  }
+                }
+              }
+            },
+            "graceful": {
+              "consistency-check": [null]
+            }
+          }
+        },
+        "tailf-ned-cisco-nx:hardware": {
+          "forwarding": {
+            "unicast": {
+              "trace": [null]
+            }
+          },
+          "qos": {
+            "ns-buffer-profile": "burst"
+          }
+        },
+        "tailf-ned-cisco-nx:vdc": {
+          "vdc-list": [
+            {
+              "name": "dist-sw01",
+              "id": 1,
+              "limit-resource": {
+                "vlan": {
+                  "minimum": 16,
+                  "maximum": 4094
+                },
+                "vrf": {
+                  "minimum": 2,
+                  "maximum": 4096
+                },
+                "port-channel": {
+                  "minimum": 0,
+                  "maximum": 511
+                },
+                "u4route-mem": {
+                  "minimum": 96,
+                  "maximum": 96
+                },
+                "u6route-mem": {
+                  "minimum": 24,
+                  "maximum": 24
+                },
+                "m4route-mem": {
+                  "minimum": 58,
+                  "maximum": 58
+                },
+                "m6route-mem": {
+                  "minimum": 8,
+                  "maximum": 8
+                }
+              }
+            }
+          ]
+        },
+        "tailf-ned-cisco-nx:interface": {
+          "mgmt": [
+            {
+              "name": 0,
+              "description": "to port8.sandbox-backend",
+              "vrf": {
+                "member": "management"
+              },
+              "ip": {
+                "address": {
+                  "ipaddr": "10.10.20.177/24"
+                }
+              },
+              "duplex": "full"
+            }
+          ],
+          "Vlan": [
+            {
+              "name": 1,
+              "shutdown": [null],
+              "ip": {
+                "redirects": false
+              },
+              "ipv6": {
+                "redirects": false
+              }
+            },
+            {
+              "name": 101,
+              "description": "prod svi",
+              "ip": {
+                "address": {
+                  "ipaddr": "172.16.101.2/24"
+                },
+                "redirects": false,
+                "router": {
+                  "ospf": {
+                    "name": 1,
+                    "area": "0.0.0.0"
+                  }
+                }
+              },
+              "ipv6": {
+                "redirects": false
+              },
+              "hsrp": {
+                "hsrp-list": [
+                  {
+                    "id": 10,
+                    "addr_type": "ipv4",
+                    "ip": [
+                      {
+                        "address": "172.16.101.1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": 102,
+              "description": "dev svi",
+              "ip": {
+                "address": {
+                  "ipaddr": "172.16.102.2/24"
+                },
+                "redirects": false,
+                "router": {
+                  "ospf": {
+                    "name": 1,
+                    "area": "0.0.0.0"
+                  }
+                }
+              },
+              "ipv6": {
+                "redirects": false
+              },
+              "hsrp": {
+                "hsrp-list": [
+                  {
+                    "id": 10,
+                    "addr_type": "ipv4",
+                    "ip": [
+                      {
+                        "address": "172.16.102.1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": 103,
+              "description": "test svi",
+              "ip": {
+                "address": {
+                  "ipaddr": "172.16.103.2/24"
+                },
+                "redirects": false,
+                "router": {
+                  "ospf": {
+                    "name": 1,
+                    "area": "0.0.0.0"
+                  }
+                }
+              },
+              "ipv6": {
+                "redirects": false
+              },
+              "hsrp": {
+                "hsrp-list": [
+                  {
+                    "id": 10,
+                    "addr_type": "ipv4",
+                    "ip": [
+                      {
+                        "address": "172.16.103.1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": 104,
+              "description": "security svi",
+              "ip": {
+                "address": {
+                  "ipaddr": "172.16.104.2/24"
+                },
+                "redirects": false,
+                "router": {
+                  "ospf": {
+                    "name": 1,
+                    "area": "0.0.0.0"
+                  }
+                }
+              },
+              "ipv6": {
+                "redirects": false
+              },
+              "hsrp": {
+                "hsrp-list": [
+                  {
+                    "id": 10,
+                    "addr_type": "ipv4",
+                    "ip": [
+                      {
+                        "address": "172.16.104.1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": 105,
+              "description": "iot svi",
+              "ip": {
+                "address": {
+                  "ipaddr": "172.16.105.2/24"
+                },
+                "redirects": false,
+                "router": {
+                  "ospf": {
+                    "name": 1,
+                    "area": "0.0.0.0"
+                  }
+                }
+              },
+              "ipv6": {
+                "redirects": false
+              },
+              "hsrp": {
+                "hsrp-list": [
+                  {
+                    "id": 10,
+                    "addr_type": "ipv4",
+                    "ip": [
+                      {
+                        "address": "172.16.105.1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "port-channel": [
+            {
+              "name": "1",
+              "enable": {
+                "switchport": true
+              },
+              "switchport": {
+                "mode": "trunk"
+              },
+              "spanning-tree": {
+                "port": {
+                  "type": "network"
+                }
+              },
+              "vpc": {
+                "peer-link": [null]
+              }
+            }
+          ],
+          "Ethernet": [
+            {
+              "name": "1/1",
+              "enable": {
+                "switchport": true
+              },
+              "switchport": {
+                "mode": "trunk"
+              },
+              "channel-group": {
+                "id": 1,
+                "mode": "active"
+              },
+              "description": "VPC Peer Link",
+              "mtu": 9216,
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/10",
+              "enable": {
+                "switchport": true
+              },
+              "shutdown": [null],
+              "description": "to",
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/100",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/101",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/102",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/103",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/104",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/105",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/106",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/107",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/108",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/109",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/11",
+              "enable": {
+                "switchport": true
+              },
+              "switchport": {
+                "access": {
+                  "vlan": 101
+                }
+              },
+              "description": "Link to inside-host01",
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              },
+              "spanning-tree": {
+                "port": {
+                  "type": "edge"
+                }
+              }
+            },
+            {
+              "name": "1/110",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/111",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/112",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/113",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/114",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/115",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/116",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/117",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/118",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/119",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/12",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/120",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/121",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/122",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/123",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/124",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/125",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/126",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/127",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/128",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/13",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/14",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/15",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/16",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/17",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/18",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/19",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/2",
+              "enable": {
+                "switchport": true
+              },
+              "switchport": {
+                "mode": "trunk"
+              },
+              "channel-group": {
+                "id": 1,
+                "mode": "active"
+              },
+              "description": "VPC Peer Link",
+              "mtu": 9216,
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/20",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/21",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/22",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/23",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/24",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/25",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/26",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/27",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/28",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/29",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/3",
+              "enable": {
+                "switchport": false
+              },
+              "description": "L3 link to dist-rtr01",
+              "ip": {
+                "address": {
+                  "ipaddr": "172.16.252.1/30"
+                },
+                "ospf": {
+                  "passive-interface": false
+                },
+                "router": {
+                  "ospf": {
+                    "name": 1,
+                    "area": "0.0.0.0"
+                  }
+                }
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/30",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/31",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/32",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/33",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/34",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/35",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/36",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/37",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/38",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/39",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/4",
+              "enable": {
+                "switchport": false
+              },
+              "description": "L3 link to dist-rtr02",
+              "ip": {
+                "address": {
+                  "ipaddr": "172.16.252.5/30"
+                },
+                "ospf": {
+                  "passive-interface": false
+                },
+                "router": {
+                  "ospf": {
+                    "name": 1,
+                    "area": "0.0.0.0"
+                  }
+                }
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/40",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/41",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/42",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/43",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/44",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/45",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/46",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/47",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/48",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/49",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/5",
+              "enable": {
+                "switchport": true
+              },
+              "shutdown": [null],
+              "description": "to",
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/50",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/51",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/52",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/53",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/54",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/55",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/56",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/57",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/58",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/59",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/6",
+              "enable": {
+                "switchport": true
+              },
+              "shutdown": [null],
+              "description": "to",
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/60",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/61",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/62",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/63",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/64",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/65",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/66",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/67",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/68",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/69",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/7",
+              "enable": {
+                "switchport": true
+              },
+              "shutdown": [null],
+              "description": "to",
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/70",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/71",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/72",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/73",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/74",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/75",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/76",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/77",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/78",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/79",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/8",
+              "enable": {
+                "switchport": true
+              },
+              "shutdown": [null],
+              "description": "to",
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/80",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/81",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/82",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/83",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/84",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/85",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/86",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/87",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/88",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/89",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/9",
+              "enable": {
+                "switchport": true
+              },
+              "shutdown": [null],
+              "description": "to",
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/90",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/91",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/92",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/93",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/94",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/95",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/96",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/97",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/98",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            },
+            {
+              "name": "1/99",
+              "enable": {
+                "switchport": true
+              },
+              "flowcontrol": {
+                "receive": "off",
+                "send": "off"
+              }
+            }
+          ],
+          "loopback": [
+            {
+              "name": 0,
+              "shutdown": [null],
+              "description": "to"
+            }
+          ]
+        },
+        "tailf-ned-cisco-nx:line": {
+          "console": {
+            "exec-timeout": 0,
+            "terminal": {
+              "width": 511
+            }
+          },
+          "vty": {
+          }
+        },
+        "tailf-ned-cisco-nx:router": {
+          "ospf": [
+            {
+              "id": 1,
+              "passive-interface": {
+                "default": [null]
+              }
+            }
+          ]
+        },
+        "tailf-ned-cisco-nx:logging": {
+          "monitor": 5,
+          "module": 5
+        },
+        "tailf-ned-cisco-nx:event": {
+          "manager": {
+            "applet": [
+              {
+                "name": "BOOTCONFIG",
+                "event": {
+                  "syslog": {
+                    "pattern": "mgmt0 is UP"
+                  }
+                },
+                "action": [
+                  {
+                    "label": "2.0",
+                    "actions": "cli python bootflash:set_boot.py"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "tailf-ned-cisco-nx:boot": {
+          "nxos": {
+            "image": "bootflash:/nxos.9.2.3.bin"
+          }
+        },
+        "ietf-yang-library:yang-library": {
+          "module-set": [
+            {
+              "name": "common",
+              "module": [
+                {
+                  "name": "tailf-ned-cisco-nx",
+                  "revision": "2020-12-08",
+                  "namespace": "http://tail-f.com/ned/cisco-nx"
+                },
+                {
+                  "name": "tailf-ned-cisco-nx-stats",
+                  "namespace": "http://tail-f.com/ned/cisco-nx/stats"
+                }
+              ],
+              "import-only-module": [
+                {
+                  "name": "tailf-ned-cisco-nx-id",
+                  "revision": "",
+                  "namespace": "http://tail-f.com/ned/cisco-nx-id"
+                }
+              ]
+            }
+          ],
+          "schema": [
+            {
+              "name": "common",
+              "module-set": ["common"]
+            }
+          ],
+          "datastore": [
+            {
+              "name": "ietf-datastores:running",
+              "schema": "common"
+            },
+            {
+              "name": "ietf-datastores:intended",
+              "schema": "common"
+            },
+            {
+              "name": "ietf-datastores:operational",
+              "schema": "common"
+            }
+          ],
+          "content-id": "3c689599f26bfa8a3cca60a4a36d068a"
+        },
+        "ietf-yang-library:modules-state": {
+          "module-set-id": "3c689599f26bfa8a3cca60a4a36d068a",
+          "module": [
+            {
+              "name": "tailf-ned-cisco-nx",
+              "revision": "2020-12-08",
+              "namespace": "http://tail-f.com/ned/cisco-nx",
+              "conformance-type": "implement"
+            },
+            {
+              "name": "tailf-ned-cisco-nx-id",
+              "revision": "",
+              "namespace": "http://tail-f.com/ned/cisco-nx-id",
+              "conformance-type": "import"
+            },
+            {
+              "name": "tailf-ned-cisco-nx-stats",
+              "revision": "",
+              "namespace": "http://tail-f.com/ned/cisco-nx/stats",
+              "conformance-type": "implement"
+            }
+          ]
+        }
+      }

@@ -1,0 +1,49 @@
+========== Device =  core-rtr01 ==========
+{
+  "tailf-ncs:platform": {
+    "name": "ios-xr",
+    "version": "6.3.1",
+    "model": "IOS XRv",
+    "serial-number": "N/A"
+  }
+}
+
+========== Device =  dist-sw01 ==========
+{
+  "tailf-ncs:platform": {
+    "name": "NX-OS",
+    "version": "9.2(3)",
+    "model": "cisco Nexus9000 9000v Chassis ",
+    "serial-number": "94902154C5V"
+  }
+}
+
+========== Device =  dist-rtr02 ==========
+{
+  "tailf-ncs:platform": {
+    "name": "ios-xe",
+    "version": "16.11.1b",
+    "model": "CSR1000V",
+    "serial-number": "9L07W60CCAO"
+  }
+}
+
+========== Device =  dist-rtr01 ==========
+{
+  "tailf-ncs:platform": {
+    "name": "ios-xe",
+    "version": "16.11.1b",
+    "model": "CSR1000V",
+    "serial-number": "9KAD9VHZ4B9"
+  }
+}
+
+========== Device =  core-rtr02 ==========
+{
+  "tailf-ncs:platform": {
+    "name": "ios-xr",
+    "version": "6.3.1",
+    "model": "IOS XRv",
+    "serial-number": "N/A"
+  }
+}
