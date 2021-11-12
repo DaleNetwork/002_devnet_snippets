@@ -1,0 +1,295 @@
+@xmlns            http://cisco.com/ns/yang/Cisco-IOS-XE-native
+version           17.3
+boot-start-marker None
+boot-end-marker   None
+banner           
+  motd
+    banner   Welcome to the DevNet Sandbox for CSR1000v and IOS XE
+ 
+The following programmability features are already enabled:
+  - NETCONF
+  - RESTCONF
+ 
+Thanks for stopping by.
+memory           
+  free
+    low-watermark
+      processor    71556
+call-home        
+  contact-email-addr
+    @xmlns   http://cisco.com/ns/yang/Cisco-IOS-XE-call-home
+    #text    sch-smart-licensing@cisco.com
+  tac-profile       
+    @xmlns    http://cisco.com/ns/yang/Cisco-IOS-XE-call-home
+    profile
+      CiscoTAC-1
+        active          true
+        destination
+          transport-method      http
+service          
+  timestamps
+    debug
+      datetime
+        msec     None
+    log  
+      datetime
+        msec     None
+  call-home   None
+platform         
+  console       
+    @xmlns   http://cisco.com/ns/yang/Cisco-IOS-XE-platform
+    output   virtual
+  qfp           
+    @xmlns        http://cisco.com/ns/yang/Cisco-IOS-XE-platform
+    utilization
+      monitor
+        load     80
+  punt-keepalive
+    @xmlns                http://cisco.com/ns/yang/Cisco-IOS-XE-platform
+    disable-kernel-core   true
+hostname          csr1000v-1
+enable           
+  secret
+    type     9
+    secret   $9$GNcSrWbM1PyCqU$9.BCza34ClqbgyABGzRV1v5hjCWhaoN9K.gqxCtcCvE
+username         
+  name       developer
+  privilege  15
+  secret   
+    encryption   9
+    secret       $9$oNguEA9um9vRx.$MsDk0DOy1rzBjKAcySWdNjoKcA7GetG9YNnKOs8S67A
+  name       root
+  privilege  15
+  secret   
+    encryption   9
+    secret       $9$IRHgr7MCAEFNLk$ZfOrXoRLFhh6gHIxhLPfOC9KzjIWISv4KqkNAR51kmI
+vrf              
+  definition
+    name             TEST
+    address-family
+      ipv4    None
+      ipv6    None
+ip               
+  domain          
+    name   lab.devnetsandbox.local
+  forward-protocol
+    protocol   nd
+  ftp             
+    passive   None
+  multicast       
+    route-limit
+      @xmlns    http://cisco.com/ns/yang/Cisco-IOS-XE-multicast
+      #text     2147483647
+  route           
+    ip-route-interface-forwarding-list
+      prefix      0.0.0.0
+      mask        0.0.0.0
+      fwd-list
+        fwd                    GigabitEthernet1
+        interface-next-hop
+          ip-address      10.10.20.254
+    vrf                               
+      name                                  TEST
+      ip-route-interface-forwarding-list
+        prefix       0.0.0.0
+        mask         0.0.0.0
+        fwd-list
+          fwd      192.168.1.2
+          fwd      192.168.1.3
+  scp             
+    server
+      enable    None
+  ssh             
+    rsa    
+      keypair-name    ssh-key
+    version   2
+  http            
+    @xmlns           http://cisco.com/ns/yang/Cisco-IOS-XE-http
+    authentication
+      local    None
+    server           true
+    secure-server    true
+policy           
+  class-map 
+    @xmlns     http://cisco.com/ns/yang/Cisco-IOS-XE-policy
+    name       HTTP
+    prematch   match-all
+    match   
+      protocol
+        protocols-list
+          protocols      http
+    @xmlns     http://cisco.com/ns/yang/Cisco-IOS-XE-policy
+    name       TELNET
+    prematch   match-all
+    match   
+      protocol
+        protocols-list
+          protocols      telnet
+  policy-map
+    @xmlns   http://cisco.com/ns/yang/Cisco-IOS-XE-policy
+    name     CBWFQ
+    class 
+      name           TELNET
+      action-list
+        action-type     bandwidth
+        bandwidth  
+          percent      10
+      name           HTTP
+      action-list
+        action-type     bandwidth
+        bandwidth  
+          percent      20
+    @xmlns   http://cisco.com/ns/yang/Cisco-IOS-XE-policy
+    name     PARENT
+    class 
+      name           class-default
+      action-list
+        action-type     shape
+        shape      
+          average
+            percent       100
+        action-type        service-policy
+        service-policy     CBWFQ
+interface        
+  GigabitEthernet
+    name          1
+    description   MANAGEMENT INTERFACE - DON'T TOUCH ME
+    ip         
+      address
+        primary
+          address      10.10.20.48
+          mask         255.255.255.0
+    logging    
+      event
+        link-status     None
+    mop        
+      enabled    false
+      sysid      false
+    negotiation
+      @xmlns    http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet
+      auto      true
+    name             2
+    description      Configured via Ansible
+    ip            
+      address
+        primary
+          address      10.1.1.1
+          mask         255.255.255.0
+    logging       
+      event
+        link-status     None
+    mop           
+      enabled    false
+      sysid      false
+    speed         
+      @xmlns        http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet
+      value-1000    None
+    negotiation   
+      @xmlns    http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet
+      auto      false
+    service-policy
+      @xmlns    http://cisco.com/ns/yang/Cisco-IOS-XE-policy
+      output    PARENT
+    name          3
+    description   Network Interface
+    logging    
+      event
+        link-status     None
+    mop        
+      enabled    false
+      sysid      false
+    negotiation
+      @xmlns    http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet
+      auto      true
+  Loopback       
+    name      0
+    vrf    
+      forwarding    TEST
+    ip     
+      address
+        primary
+          address      192.168.1.1
+          mask         255.255.255.0
+    logging
+      event
+        link-status     None
+control-plane     None
+logging          
+  monitor-conf  
+    monitor   false
+  console-config
+    console   false
+  console-conf  
+    console   false
+login            
+  on-success
+    log   None
+multilink        
+  bundle-name
+    @xmlns   http://cisco.com/ns/yang/Cisco-IOS-XE-ppp
+    #text    authenticated
+redundancy        None
+spanning-tree    
+  extend
+    @xmlns      http://cisco.com/ns/yang/Cisco-IOS-XE-spanning-tree
+    system-id   None
+subscriber       
+  templating  None
+ethernet         
+  cfm
+    @xmlns   http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet
+    alarm 
+      delay    2500
+      reset    10000
+crypto           
+  pki
+    @xmlns        http://cisco.com/ns/yang/Cisco-IOS-XE-crypto
+    certificate
+      chain
+        name            SLA-TrustPoint
+        certificate
+          serial        01
+          certtype      ca
+        name            TP-self-signed-807034967
+        certificate
+          serial        01
+          certtype      self-signed
+    trustpoint 
+      id                  SLA-TrustPoint
+      enrollment      
+        pkcs12     None
+      revocation-check    crl
+      id                  TP-self-signed-807034967
+      enrollment      
+        selfsigned     None
+      revocation-check    none
+      subject-name        cn=IOS-Self-Signed-Certificate-807034967
+license          
+  udi 
+    pid   CSR1000V
+    sn    9ESGOBARV9D
+  boot
+    level
+      ax    None
+line             
+  console
+    first          0
+    exec-timeout
+      minutes    0
+      seconds    0
+    stopbits       1
+  vty    
+    first       0
+    last        4
+    login    
+      local    None
+    transport
+      input
+        input     ssh
+diagnostic       
+  @xmlns  http://cisco.com/ns/yang/Cisco-IOS-XE-diagnostics
+  bootup
+    level   minimal
+lldp             
+  @xmlns  http://cisco.com/ns/yang/Cisco-IOS-XE-lldp
+  run     None

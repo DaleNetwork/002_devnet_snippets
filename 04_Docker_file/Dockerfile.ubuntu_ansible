@@ -1,0 +1,20 @@
+# install docker with ansible
+# 1. docker build -t ubuntu_ansible:v1 -f Dockerfile.ubuntu_ansible .
+#    docker will find the Dockerfile in current folder
+# docker build -t ubuntu_ansible:v1 -f file1 /home/ubuntu/docker_demo/
+# [-t ubuntu_ansible:v1] is the name of built image
+# docker will find the file1 in the folder [/home/ubuntu/docker_demo/] 
+#  as the Dockerfile
+# the images are stored in folder /var/lib/docker/image
+
+FROM ubuntu
+
+RUN apt-get update  
+# you can ignore the apt-utils not installed
+# RUN apt-get install -y apt-utils
+RUN apt-get install -y iputils-ping 
+RUN apt-get install -y net-tools
+RUN apt-get install -y openssh-client
+RUN apt-get install -y ansible 
+RUN apt-get install -y python3-pip 
+RUN pip3 install paramiko

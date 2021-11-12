@@ -1,0 +1,7 @@
+01.sandbox_running.from_putty.txt
+01_get_iosxe_run_conf.ipynb
+01_get_iosxe_run_conf_output.xml
+01_get_iosxe_run_conf_output.xml.parsed.txt
+02_get_iosxe_csr_capabilities.ipynb
+03_parsing_xml_config.ipynb
+name.txt
